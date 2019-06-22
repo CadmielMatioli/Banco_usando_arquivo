@@ -181,6 +181,7 @@ public class Cadastrar extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCpf.setText("");
         txtCpf.setDisabledTextColor(new java.awt.Color(204, 153, 255));
         txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

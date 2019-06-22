@@ -135,6 +135,7 @@ public class Agencia {
                     linha = "";
                 }
                 bw.write(linha);
+                bw.newLine();
             }
         }
         br.close();
