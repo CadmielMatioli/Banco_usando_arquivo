@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Usuario {
 
+    private Boolean bool;
     private String nome;
     private String cpf;
     private String endereco;
@@ -31,6 +32,14 @@ public class Usuario {
         this.email = email;
     }
 //-------
+
+    public Boolean getBool() {
+        return bool;
+    }
+
+    public void setBool(Boolean bool) {
+        this.bool = bool;
+    }
 
     public Usuario() {
 
@@ -208,5 +217,27 @@ public class Usuario {
         }
         br.close();
         fr.close();
+    }
+
+    public Usuario login() throws IOException {
+        File arquivo = new File("usuario.txt");
+        if (!arquivo.exists()) {
+            this.bool = false;
+            return this;
+        }
+        BufferedReader br = new BufferedReader(new FileReader(arquivo));
+        String linha;
+        while ((linha = br.readLine()) != null) {
+            String[] dados = linha.split(";");
+            if (dados[0].equals(this.nome)) {
+                if (dados[1].equals(this.cpf)) {
+                    this.bool = true;
+                    br.close();
+                    return this;
+                }
+            }
+        }
+        this.bool = false;
+        return this;
     }
 }
