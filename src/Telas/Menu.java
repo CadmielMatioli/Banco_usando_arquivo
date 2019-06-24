@@ -334,14 +334,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu13MouseClicked
 
     private void jMenu12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu12MouseClicked
-        CadastrarContacc cc = null;
+        
         try {
-            cc = new CadastrarContacc();
-        } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-
+            CadastrarContacc cc = new CadastrarContacc();
             cc.setVisible(true);
             dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenu12MouseClicked
 

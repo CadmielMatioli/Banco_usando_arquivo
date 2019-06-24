@@ -165,9 +165,7 @@ public class CadastrarContacc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcadastrarActionPerformed
-
         ContaCorrente cc = new ContaCorrente();
-
         if (!this.txtnumeroConta.getText().equals("")) {
             cc.setNumeroConta(txtnumeroConta.getText());
             int i = JOptionPane.showConfirmDialog(rootPane, "Deseja salvar essas informações?");
@@ -233,8 +231,8 @@ public void select() throws IOException {
         }
         List<Agencia> l = a.listar();
         for (Agencia u : l) {
-            String id = u.getNumeroAgencia();
-            String description = u.getNumeroAgencia();
+            String id = u.getNumeroPredio();
+            String description = u.getNumeroPredio();
             model1.addElement(new Item(id, description));
         }
     }

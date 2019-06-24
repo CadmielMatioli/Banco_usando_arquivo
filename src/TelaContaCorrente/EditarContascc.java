@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,8 +25,9 @@ public class EditarContascc extends javax.swing.JFrame {
     /**
      * Creates new form EditarContascc
      */
-    public EditarContascc() {
+    public EditarContascc() throws IOException {
         initComponents();
+        select();
     }
 
     /**
@@ -162,20 +164,16 @@ public class EditarContascc extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtselectclienteedit;
     // End of variables declaration//GEN-END:variables
 public void select() throws IOException {
-    
-    
         Usuario user = new Usuario();
         Agencia a = new Agencia();
-        
-        Item description = (Item)txtAgenciaEdit.getSelectedItem();
-        Item id = (Item)txtselectclienteedit.getSelectedItem();                                
-
-
-        
+        DefaultComboBoxModel model = (DefaultComboBoxModel) txtselectclienteedit.getModel();
+        DefaultComboBoxModel model1 = (DefaultComboBoxModel) txtAgenciaEdit.getModel();
         try {
             List<Usuario> l = user.listar();
             for (Usuario u : l) {
-                txtselectclienteedit.addItem(u.getNome());
+                String id = u.getCpf();
+                String description = u.getNome();
+                model.addElement(new EditarContascc.Item(id, description));
             }
         } catch (IOException ex) {
             Logger.getLogger(Listar.class
@@ -183,7 +181,31 @@ public void select() throws IOException {
         }
         List<Agencia> l = a.listar();
         for (Agencia u : l) {
-            txtAgenciaEdit.addItem(u.getNumeroAgencia());
+            String id = u.getNumeroPredio();
+            String description = u.getNumeroPredio();
+            model1.addElement(new EditarContascc.Item(id, description));
+        }
+    }
+  class Item {
+
+        private String id;
+        private String description;
+
+        public Item(String id, String description) {
+            this.id = id;
+            this.description = description;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String toString() {
+            return description;
         }
     }
 }
