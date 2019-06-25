@@ -32,25 +32,17 @@ public class EditarContascc extends javax.swing.JFrame {
     public void setU(ContaCorrente u) {
         this.u = u;
         txtnumeroContaedit.setText(u.getNumeroConta());
-//        txtBairro.setText(u.getBairro());
-//        txtCidade.setText(u.getCidade());
-//        txtEmail.setText(u.getEmail());
-//        txtNumCasa.setText(u.getNumeroResidencia());
-//        txtEndereco.setText(u.getEndereco());
-//        txtEstado.setText(u.getEstado());
-//        txtNome.setText(u.getNome());
+        txtselectclienteedit.addItem(u.getAgencia());
+        txtAgenciaEdit.addItem(u.getAgencia());
     }
 
     /**
      * Creates new form EditarContascc
      */
-    public EditarContascc(String ag, String us) throws IOException {
+    public EditarContascc() throws IOException {
         initComponents();
         setLocationRelativeTo(null);
-        select(ag, us);
-    }
-    public EditarContascc(){
-        
+        select();
     }
 
     /**
@@ -185,7 +177,7 @@ public class EditarContascc extends javax.swing.JFrame {
     private javax.swing.JTextField txtnumeroContaedit;
     private javax.swing.JComboBox<String> txtselectclienteedit;
     // End of variables declaration//GEN-END:variables
-public void select(String agencia, String usuario) throws IOException {
+public void select() throws IOException {
         Usuario user = new Usuario();
         Agencia a = new Agencia();
         DefaultComboBoxModel model = (DefaultComboBoxModel) txtselectclienteedit.getModel();
@@ -205,13 +197,6 @@ public void select(String agencia, String usuario) throws IOException {
         for (Agencia u : l) {
             String id = u.getNumeroPredio();
             String description = u.getNumeroPredio();
-
-            if (u.getNumeroPredio().equals(agencia)) {
-                model.setSelectedItem(new Item(id, description));
-            }
-            if (u.getNumeroPredio().equals(usuario)) {
-                model1.setSelectedItem(new Item(id, description));
-            }
             model1.addElement(new Item(id, description));
         }
     }

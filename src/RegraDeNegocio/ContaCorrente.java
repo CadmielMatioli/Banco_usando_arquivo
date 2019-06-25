@@ -109,8 +109,8 @@ public class ContaCorrente extends Conta {
         while (br.ready()) {
             String linha = br.readLine();
             String vet[] = linha.split(";");
-            if (this.agencia.equals(vet[0])) {
-                this.numeroConta = (vet[1]);
+            if (this.numeroConta.equals(vet[0])) {
+                this.agencia = (vet[1]);
                 this.usuario = vet[2];
             }
             br.close();

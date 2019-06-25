@@ -130,21 +130,27 @@ public class ListarContascc extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
         if (evt.getClickCount() == 2) {
+           
             try {
-                JTable table = (JTable) evt.getSource();
-                int row = table.getSelectedRow();
-                String o = (String) table.getValueAt(row, 0);
-                EditarContascc e = new EditarContascc();
-                ContaCorrente u = new ContaCorrente();
-                u.setAgencia(o);
+                 EditarContascc e = new EditarContascc();
+           
+            JTable table = (JTable) evt.getSource();
+            int row = table.getSelectedRow();
+            String o = (String) table.getValueAt(row, 0);
+            ContaCorrente u = new ContaCorrente();
+            u.setNumeroConta(o);
+            try {
                 u.buscar();
-                e.setU(u);
-                e.setVisible(true);
-                dispose();
             } catch (IOException ex) {
                 Logger.getLogger(ListarContascc.class.getName()).log(Level.SEVERE, null, evt);
-            } catch (Exception e) {
-                Logger.getLogger(ListarContascc.class.getName()).log(Level.SEVERE, null, evt);
+            } catch (Exception ex) {
+                Logger.getLogger(ListarContascc.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            e.setU(u);
+            e.setVisible(true);
+            dispose();
+             } catch (IOException ex) {
+                Logger.getLogger(ListarContascc.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
