@@ -28,6 +28,7 @@ public class EditarContascc extends javax.swing.JFrame {
      */
     public EditarContascc(Agencia ag, Usuario us) throws IOException {
         initComponents();
+        setLocationRelativeTo(null);
         select(ag.getNumeroPredio(),us.getCpf());
     }
 
