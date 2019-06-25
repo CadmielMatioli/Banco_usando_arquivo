@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -131,7 +132,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 jTextField1.setText("");
                 jPasswordField1.setText("");
                 JOptionPane.showMessageDialog(rootPane, "Usuario e Senha não encontrados \nou Campos Incorretos",
-                    "Erro", JOptionPane.ERROR_MESSAGE);
+                        "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
                 Menu m = new Menu();
                 m.setVisible(true);
@@ -140,7 +141,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(rootPane, "Usuario não encontrado",
-                "Erro", JOptionPane.ERROR_MESSAGE);
+                    "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_Entrar1ActionPerformed
 
@@ -155,10 +156,7 @@ public class TelaLogin extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
