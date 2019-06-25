@@ -12,19 +12,11 @@ public class Poupanca extends Conta {
     int valorDeposito;
     int retirada;
 
-    public Poupanca(Agencia agencia, Usuario usuario, float retirada, float saldo, String numeroConta, float limite) {
-        super(agencia, usuario, retirada, saldo, numeroConta, limite);
+    public Poupanca(Agencia agencia, Usuario usuario, String numeroConta) {
+        super(agencia, usuario, numeroConta);
     }
 
     public Poupanca() {
-    }
-
-    public float getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(float saldo) {
-        this.saldo = saldo;
     }
 
     public String getNumeroConta() {
@@ -34,37 +26,6 @@ public class Poupanca extends Conta {
     public void setNumeroConta(String numeroConta) {
         this.numeroConta = numeroConta;
     }
-
-    //**********************************************************************************
-    //********Depositar********************************************************************
-    @Override
-    public void depositar(float v) {
-
-    }
-
-    //********Sacar************************************************************************
-    @Override
-    public void sacar(float retirada) {
-
-    }
-
-    //********Ver Saldo *******************************************************************
-    @Override
-    public void verSaldo() {
-
-    }
-
-    //********Transferencia B***************************************************************
-    @Override
-    public void transferencia(Conta c) {
-
-    }
-    //********Calcular Juros***************************************************************
-
-    public void calcularJuros() {
-
-    }
-
     //********Cadastrar********************************************************************
     public void cadastrar() throws IOException {
         File arquivo = new File("ContaPoupanca.txt");

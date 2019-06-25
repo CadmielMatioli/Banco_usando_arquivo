@@ -7,6 +7,7 @@ package TelaContaCorrente;
 
 import Tela.Usuario.Listar;
 import RegraDeNegocio.Agencia;
+import RegraDeNegocio.ContaCorrente;
 import RegraDeNegocio.Usuario;
 import TelaContaCorrente.CadastrarContacc.Item;
 import java.io.IOException;
@@ -25,9 +26,9 @@ public class EditarContascc extends javax.swing.JFrame {
     /**
      * Creates new form EditarContascc
      */
-    public EditarContascc() throws IOException {
+    public EditarContascc(Agencia ag, Usuario us) throws IOException {
         initComponents();
-        select();
+        select(ag.getNumeroPredio(),us.getCpf());
     }
 
     /**
@@ -163,7 +164,7 @@ public class EditarContascc extends javax.swing.JFrame {
     private javax.swing.JTextField txtnumeroContaedit;
     private javax.swing.JComboBox<String> txtselectclienteedit;
     // End of variables declaration//GEN-END:variables
-public void select() throws IOException {
+public void select(String agencia, String usuario) throws IOException {
         Usuario user = new Usuario();
         Agencia a = new Agencia();
         DefaultComboBoxModel model = (DefaultComboBoxModel) txtselectclienteedit.getModel();
@@ -173,7 +174,7 @@ public void select() throws IOException {
             for (Usuario u : l) {
                 String id = u.getCpf();
                 String description = u.getNome();
-                model.addElement(new EditarContascc.Item(id, description));
+                model.addElement(new Item(id, description));
             }
         } catch (IOException ex) {
             Logger.getLogger(Listar.class
@@ -183,10 +184,18 @@ public void select() throws IOException {
         for (Agencia u : l) {
             String id = u.getNumeroPredio();
             String description = u.getNumeroPredio();
-            model1.addElement(new EditarContascc.Item(id, description));
+
+            if (u.getNumeroPredio().equals(agencia)) {
+                model.setSelectedItem(new Item(id, description));
+            }
+            if (u.getNumeroPredio().equals(usuario)) {
+                model1.setSelectedItem(new Item(id, description));
+            }
+            model1.addElement(new Item(id, description));
         }
     }
-  class Item {
+
+    class Item {
 
         private String id;
         private String description;

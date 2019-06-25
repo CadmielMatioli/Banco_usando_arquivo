@@ -11,44 +11,11 @@ import java.util.List;
 
 public class ContaCorrente extends Conta {
 
-    public ContaCorrente(Agencia agencia, Usuario usuario, float retirada, float saldo, String numeroConta, float limite) {
-        super(agencia, usuario, retirada, saldo, numeroConta, limite);
+    public ContaCorrente(Agencia agencia, Usuario usuario, String numeroConta) {
+        super(agencia, usuario, numeroConta);
     }
 
     public ContaCorrente() {
-    }
-//**********Construtor********************************************************************
-
-//**********Get and Setter********************************************************************
-//********** Metodo Depositar******************************************************************** 
-    @Override
-    public void depositar(float v) {
-        if (v > 0) {
-            this.setSaldo(this.getSaldo() + v);
-        }
-    }
-//***********Método Sacar*******************************************************************
-
-    @Override
-    public void sacar(float retirada) {
-        if ((this.saldo - retirada) >= 0) {
-            saldo -= retirada;
-
-        } else {
-            System.out.println("Saldo indisponível");
-        }
-    }
-//***********Método verSaldo*******************************************************************
-
-    @Override
-    public void verSaldo() {
-        System.out.println(saldo);
-    }
-//***********Método Transferir*****************************************************************
-
-    @Override
-    public void transferencia(Conta c) {
-
     }
 //***********Cadastrar Conta Corrente***********************************************************
 
@@ -87,5 +54,22 @@ public class ContaCorrente extends Conta {
 
     }
     //**********************************************************************************************   
-
+        public List<ContaCorrente> listar() throws IOException {
+        BufferedReader buffRead = new BufferedReader(new FileReader("ContaCorrente.txt"));
+        String linha = "";
+        List<ContaCorrente> l = new ArrayList<ContaCorrente>();
+        linha = buffRead.readLine();
+        while (true) {
+            if (linha != null) {
+                String dados[] = linha.split(";");
+//                ContaCorrente u = new ContaCorrente(dados[0], dados[1], dados[2]);
+//                l.add(u);
+            } else {
+                break;
+            }
+            linha = buffRead.readLine();
+        }
+        buffRead.close();
+        return l;
+    }
 }
