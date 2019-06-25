@@ -8,10 +8,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Poupanca extends Conta {
+
     int valorDeposito;
     int retirada;
+
     public Poupanca(Agencia agencia, Usuario usuario, float retirada, float saldo, String numeroConta, float limite) {
-    super(agencia, usuario, retirada, saldo, numeroConta, limite);
+        super(agencia, usuario, retirada, saldo, numeroConta, limite);
     }
 
     public Poupanca() {
@@ -34,7 +36,6 @@ public class Poupanca extends Conta {
     }
 
     //**********************************************************************************
-
     //********Depositar********************************************************************
     @Override
     public void depositar(float v) {
@@ -58,24 +59,26 @@ public class Poupanca extends Conta {
     public void transferencia(Conta c) {
 
     }
-     //********Calcular Juros***************************************************************
-    public void calcularJuros(){
-        
+    //********Calcular Juros***************************************************************
+
+    public void calcularJuros() {
+
     }
+
     //********Cadastrar********************************************************************
     public void cadastrar() throws IOException {
         File arquivo = new File("ContaPoupanca.txt");
         arquivo.createNewFile();
         FileWriter fw = new FileWriter(arquivo, true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(numeroConta + ";");
+        bw.write(numeroConta + ";" + agencia.getNumeroPredio()+ ";" + usuario.getCpf() + ";");
         bw.newLine();
         bw.close();
         fw.close();
     }
-    
-    public String editar() throws IOException{
-        
+
+    public String editar() throws IOException {
+
         File arquivoTemp = new File("tmpContaPoupanca.txt");
         File arquivo = new File("ContaPoupanca.txt");
 
@@ -95,10 +98,7 @@ public class Poupanca extends Conta {
         arquivo.delete();
         arquivoTemp.renameTo(arquivo);
         return numeroConta;
-      
+
     }
-    
-    
-    
-    
+
 }

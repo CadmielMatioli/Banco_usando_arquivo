@@ -51,7 +51,6 @@ public class CadastrarContapp extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
 
         btcadastrarpoupanca.setText("Cadastrar");
         btcadastrarpoupanca.setAutoscrolls(true);
@@ -156,6 +155,14 @@ public class CadastrarContapp extends javax.swing.JFrame {
         Poupanca pp = new Poupanca();
 
         if (!this.txtnumeroContaPoupana.getText().equals("")){
+            Agencia a = new Agencia();
+            Usuario u = new Usuario();
+            Item ag = (Item) txtAgenciaSelectp.getSelectedItem();
+            Item us = (Item) txtselectclientep.getSelectedItem();
+            u.setCpf(us.id);
+            a.setNumeroPredio(ag.id);
+            pp.setUsuario(u);
+            pp.setAgencia(a);
             pp.setNumeroConta(txtnumeroContaPoupana.getText());
             int i = JOptionPane.showConfirmDialog(rootPane, "Deseja salvar essas informações?");
             if (i == 0) {
@@ -221,8 +228,8 @@ public void select() throws IOException {
         }
         List<Agencia> l = a.listar();
         for (Agencia u : l) {
-            String id = u.getNumeroAgencia();
-            String description = u.getNumeroAgencia();
+            String id = u.getNumeroPredio();
+            String description = u.getNumeroPredio();
             model1.addElement(new Item(id, description));
         }
     }

@@ -2,7 +2,7 @@ package RegraDeNegocio;
 
 public abstract class Conta {
     public Agencia agencia;
-    private Usuario usuario;
+    public Usuario usuario;
     
     public float retirada;
     float saldo;

@@ -57,7 +57,7 @@ public class ContaCorrente extends Conta {
         arquivo.createNewFile();
         FileWriter fw = new FileWriter(arquivo, true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(this.numeroConta+";");
+        bw.write(this.numeroConta + ";" + this.agencia.getNumeroPredio() + ";" + this.usuario.getCpf() + ";");
         bw.newLine();
         bw.close();
         fw.close();
@@ -74,7 +74,7 @@ public class ContaCorrente extends Conta {
         while ((linha = br.readLine()) != null) {
             String[] line = linha.split(";");
             if (line[0].equals(numeroConta)) {
-                linha = numeroConta + ";";
+                linha = numeroConta + ";" + this.agencia.getNumeroPredio() + ";" + this.usuario.getCpf() + ";";
             }
             bw.write(linha);
             bw.newLine();
