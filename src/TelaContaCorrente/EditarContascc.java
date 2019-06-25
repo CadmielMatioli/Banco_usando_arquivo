@@ -23,13 +23,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EditarContascc extends javax.swing.JFrame {
 
+    private ContaCorrente u;
+
+    public ContaCorrente getU() {
+        return u;
+    }
+
+    public void setU(ContaCorrente u) {
+        this.u = u;
+        txtnumeroContaedit.setText(u.getNumeroConta());
+//        txtBairro.setText(u.getBairro());
+//        txtCidade.setText(u.getCidade());
+//        txtEmail.setText(u.getEmail());
+//        txtNumCasa.setText(u.getNumeroResidencia());
+//        txtEndereco.setText(u.getEndereco());
+//        txtEstado.setText(u.getEstado());
+//        txtNome.setText(u.getNome());
+    }
+
     /**
      * Creates new form EditarContascc
      */
-    public EditarContascc(Agencia ag, Usuario us) throws IOException {
+    public EditarContascc(String ag, String us) throws IOException {
         initComponents();
         setLocationRelativeTo(null);
-        select(ag.getNumeroPredio(),us.getCpf());
+        select(ag, us);
+    }
+    public EditarContascc(){
+        
     }
 
     /**

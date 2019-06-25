@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -62,6 +63,11 @@ public class ListarContascc extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -121,6 +127,28 @@ public class ListarContascc extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
+        if (evt.getClickCount() == 2) {
+            try {
+                JTable table = (JTable) evt.getSource();
+                int row = table.getSelectedRow();
+                String o = (String) table.getValueAt(row, 0);
+                EditarContascc e = new EditarContascc();
+                ContaCorrente u = new ContaCorrente();
+                u.setAgencia(o);
+                u.buscar();
+                e.setU(u);
+                e.setVisible(true);
+                dispose();
+            } catch (IOException ex) {
+                Logger.getLogger(ListarContascc.class.getName()).log(Level.SEVERE, null, evt);
+            } catch (Exception e) {
+                Logger.getLogger(ListarContascc.class.getName()).log(Level.SEVERE, null, evt);
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -136,11 +164,11 @@ public class ListarContascc extends javax.swing.JFrame {
         try {
             List<ContaCorrente> l = contacc.listar();
             for (ContaCorrente u : l) {
-                Object[] o = {u.getAgencia(),u.getNumeroConta(),u.getUsuario()};
+                Object[] o = {u.getAgencia(), u.getNumeroConta(), u.getUsuario()};
                 ((DefaultTableModel) jTable1.getModel()).addRow(o);
             }
         } catch (IOException ex) {
-            
+
         }
     }
 }

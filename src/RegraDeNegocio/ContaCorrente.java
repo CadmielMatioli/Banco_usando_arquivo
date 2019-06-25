@@ -41,10 +41,8 @@ public class ContaCorrente extends Conta {
     public void setNumeroConta(String numeroConta) {
         this.numeroConta = numeroConta;
     }
-    
-    
-//***********Cadastrar Conta Corrente***********************************************************
 
+//***********Cadastrar Conta Corrente***********************************************************
     public void cadastrar() throws IOException {
         File arquivo = new File("ContaCorrente.txt");
         arquivo.createNewFile();
@@ -79,8 +77,9 @@ public class ContaCorrente extends Conta {
         return numeroConta;
 
     }
+
     //**********************************************************************************************   
-           public List<ContaCorrente> listar() throws IOException {
+    public List<ContaCorrente> listar() throws IOException {
         BufferedReader buffRead = new BufferedReader(new FileReader("ContaCorrente.txt"));
         String linha = "";
         List<ContaCorrente> l = new ArrayList<ContaCorrente>();
@@ -98,5 +97,24 @@ public class ContaCorrente extends Conta {
         }
         buffRead.close();
         return l;
+    }
+
+    public void buscar() throws Exception {
+        File arquivo = new File("ContaCorrente.txt");
+        if (!arquivo.exists()) {
+            arquivo.createNewFile();
+        }
+        FileReader fr = new FileReader(arquivo);
+        BufferedReader br = new BufferedReader(fr);
+        while (br.ready()) {
+            String linha = br.readLine();
+            String vet[] = linha.split(";");
+            if (this.agencia.equals(vet[0])) {
+                this.numeroConta = (vet[1]);
+                this.usuario = vet[2];
+            }
+            br.close();
+            fr.close();
+        }
     }
 }
