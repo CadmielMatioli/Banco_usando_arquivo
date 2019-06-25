@@ -54,6 +54,7 @@ public class CadastrarAgencia extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Agência");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -129,10 +130,10 @@ public class CadastrarAgencia extends javax.swing.JFrame {
         });
 
         jLabel9.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 50)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(155, 31, 203));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("NOOB BANK");
+        jLabel9.setText("Cadastro de Agência");
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

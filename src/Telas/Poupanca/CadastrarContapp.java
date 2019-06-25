@@ -51,6 +51,7 @@ public class CadastrarContapp extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Conta Poupança");
 
         btcadastrarpoupanca.setText("Cadastrar");
         btcadastrarpoupanca.setAutoscrolls(true);

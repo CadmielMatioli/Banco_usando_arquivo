@@ -48,7 +48,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("NOOB BANK");
+        setTitle("New Bank");
         setMinimumSize(new java.awt.Dimension(980, 580));
         getContentPane().setLayout(null);
 

@@ -53,6 +53,7 @@ public class EditarContapp extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Editar Conta Poupança");
 
         btcadastrarpoupanca.setText("Cadastrar");
         btcadastrarpoupanca.setAutoscrolls(true);

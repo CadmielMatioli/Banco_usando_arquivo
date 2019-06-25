@@ -82,7 +82,7 @@ public class Editar extends javax.swing.JFrame {
         txtCpf = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("NOOB BANK EDITAR");
+        setTitle("Editar Usuário");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(51, 51, 255));
