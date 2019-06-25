@@ -5,7 +5,13 @@
  */
 package TelaContaCorrente;
 
+import RegraDeNegocio.ContaCorrente;
 import Telas.Menu;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +25,7 @@ public class ListarContascc extends javax.swing.JFrame {
     public ListarContascc() {
         initComponents();
         setLocationRelativeTo(null);
+        table();
     }
 
     /**
@@ -124,4 +131,16 @@ public class ListarContascc extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+  private void table() {
+        ContaCorrente contacc = new ContaCorrente();
+        try {
+            List<ContaCorrente> l = contacc.listar();
+            for (ContaCorrente u : l) {
+                Object[] o = {u.getAgencia(),u.getNumeroConta(),u.getUsuario()};
+                ((DefaultTableModel) jTable1.getModel()).addRow(o);
+            }
+        } catch (IOException ex) {
+            
+        }
+    }
 }

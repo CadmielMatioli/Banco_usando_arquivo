@@ -167,21 +167,22 @@ public class CadastrarContacc extends javax.swing.JFrame {
 
     private void btcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcadastrarActionPerformed
         ContaCorrente cc = new ContaCorrente();
-        if (!this.txtnumeroConta.getText().equals("")) {
-            Agencia a = new Agencia();
-            Usuario u = new Usuario();
+        
+        Item ag = (Item) txtAgenciaSelect.getSelectedItem();
+        Item us = (Item) txtselectcliente.getSelectedItem();
+        
+        if (!this.txtnumeroConta.getText().equals("") && !ag.id.equals("Selecione o item") && !us.id.equals("Selecione o item")) {
             cc.setNumeroConta(txtnumeroConta.getText());
-            Item ag = (Item) txtAgenciaSelect.getSelectedItem();
-            Item us = (Item) txtselectcliente.getSelectedItem();
-            u.setCpf(us.id);
-            a.setNumeroPredio(ag.id);
-            cc.setUsuario(u);
-            cc.setAgencia(a);
+            
+            cc.setUsuario(us.id);
+            cc.setAgencia(ag.id);
             int i = JOptionPane.showConfirmDialog(rootPane, "Deseja salvar essas informações?");
             if (i == 0) {
                 try {
                     cc.cadastrar();
                     txtnumeroConta.setText("");
+                    txtAgenciaSelect.setSelectedItem(null);
+                    txtselectcliente.setSelectedItem(null);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Erro ao salvar",
                             "Erro", JOptionPane.ERROR_MESSAGE);
@@ -238,12 +239,16 @@ public void select() throws IOException {
             Logger.getLogger(Listar.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
+        
         List<Agencia> l = a.listar();
         for (Agencia u : l) {
             String id = u.getNumeroPredio();
             String description = u.getNumeroPredio();
             model1.addElement(new Item(id, description));
         }
+        
+        model.setSelectedItem(new Item("Selecione o item", "Selecione o item"));
+        model1.setSelectedItem(new Item("Selecione o item", "Selecione o item"));        
     }
 
     class Item {

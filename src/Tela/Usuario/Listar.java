@@ -28,8 +28,8 @@ public class Listar extends javax.swing.JFrame {
      */
     public Listar() {
         initComponents();
-        table();
         setLocationRelativeTo(null);
+        table();
     }
 
     /**

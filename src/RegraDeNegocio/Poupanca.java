@@ -12,7 +12,7 @@ public class Poupanca extends Conta {
     int valorDeposito;
     int retirada;
 
-    public Poupanca(Agencia agencia, Usuario usuario, String numeroConta) {
+    public Poupanca(String agencia, String usuario, String numeroConta) {
         super(agencia, usuario, numeroConta);
     }
 
@@ -32,7 +32,7 @@ public class Poupanca extends Conta {
         arquivo.createNewFile();
         FileWriter fw = new FileWriter(arquivo, true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(numeroConta + ";" + agencia.getNumeroPredio()+ ";" + usuario.getCpf() + ";");
+        bw.write(numeroConta + ";" + agencia + ";" + usuario + ";");
         bw.newLine();
         bw.close();
         fw.close();

@@ -1,11 +1,11 @@
 package RegraDeNegocio;
 
 public abstract class Conta {
-    public Agencia agencia;
-    public Usuario usuario;
+    public String agencia;
+    public String usuario;
     String numeroConta;
 
-    public Conta(Agencia agencia, Usuario usuario,String numeroConta) {
+    public Conta(String agencia, String usuario, String numeroConta) {
         this.agencia = agencia;
         this.usuario = usuario;
         this.numeroConta = numeroConta;
@@ -13,19 +13,19 @@ public abstract class Conta {
     
     public Conta(){}
 
-    public Agencia getAgencia() {
+    public String getAgencia() {
         return agencia;
     }
 
-    public void setAgencia(Agencia agencia) {
+    public void setAgencia(String agencia) {
         this.agencia = agencia;
     }
 
-    public Usuario getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
