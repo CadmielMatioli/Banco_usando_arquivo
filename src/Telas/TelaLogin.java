@@ -82,14 +82,16 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel9);
         jLabel9.setBounds(0, 540, 144, 16);
 
-        Entrar1.setText("Entrar");
+        Entrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Entrar.png"))); // NOI18N
+        Entrar1.setBorder(null);
+        Entrar1.setContentAreaFilled(false);
         Entrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Entrar1ActionPerformed(evt);
             }
         });
         getContentPane().add(Entrar1);
-        Entrar1.setBounds(80, 260, 116, 25);
+        Entrar1.setBounds(100, 250, 116, 40);
 
         jLabel10.setForeground(new java.awt.Color(0, 51, 51));
         jLabel10.setText("Nome do cliente");
