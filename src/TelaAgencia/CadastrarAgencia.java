@@ -134,7 +134,7 @@ public class CadastrarAgencia extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 125, 36));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 125, 36));
 
         jToggleButton1.setBackground(new java.awt.Color(102, 0, 204));
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,6 +149,11 @@ public class CadastrarAgencia extends javax.swing.JFrame {
         jToggleButton1.setHideActionText(true);
         jToggleButton1.setInheritsPopupMenu(true);
         jToggleButton1.setVerifyInputWhenFocusTarget(false);
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -248,6 +253,12 @@ public class CadastrarAgencia extends javax.swing.JFrame {
     private void txtnumeroAgenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeroAgenciaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnumeroAgenciaActionPerformed
+
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+        Menu m = new Menu();
+        m.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jToggleButton1MouseClicked
 
     /**
      * @param args the command line arguments

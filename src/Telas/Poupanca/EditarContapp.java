@@ -58,23 +58,39 @@ public class EditarContapp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnreturn = new javax.swing.JToggleButton();
         btcadastrarpoupanca = new javax.swing.JButton();
         txtEditarContaPP = new javax.swing.JTextField();
         txtEditarCliente = new javax.swing.JComboBox<>();
         txtEditarAgencia = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Editar Conta Poupança");
         setPreferredSize(new java.awt.Dimension(980, 580));
         getContentPane().setLayout(null);
 
-        btcadastrarpoupanca.setText("Cadastrar");
+        btnreturn.setBackground(new java.awt.Color(102, 0, 102));
+        btnreturn.setForeground(new java.awt.Color(255, 255, 255));
+        btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Botao Voltar Vermelho.png"))); // NOI18N
+        btnreturn.setText("Voltar");
+        btnreturn.setContentAreaFilled(false);
+        btnreturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreturnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnreturn);
+        btnreturn.setBounds(730, 400, 171, 59);
+
+        btcadastrarpoupanca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Botao Editar Vermelho.png"))); // NOI18N
         btcadastrarpoupanca.setAutoscrolls(true);
+        btcadastrarpoupanca.setContentAreaFilled(false);
         btcadastrarpoupanca.setDoubleBuffered(true);
         btcadastrarpoupanca.setFocusCycleRoot(true);
         btcadastrarpoupanca.setHideActionText(true);
@@ -86,7 +102,7 @@ public class EditarContapp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btcadastrarpoupanca);
-        btcadastrarpoupanca.setBounds(299, 371, 213, 40);
+        btcadastrarpoupanca.setBounds(350, 410, 213, 40);
 
         txtEditarContaPP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +110,7 @@ public class EditarContapp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEditarContaPP);
-        txtEditarContaPP.setBounds(458, 226, 477, 20);
+        txtEditarContaPP.setBounds(458, 226, 477, 22);
 
         txtEditarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,32 +118,39 @@ public class EditarContapp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEditarCliente);
-        txtEditarCliente.setBounds(299, 174, 636, 20);
+        txtEditarCliente.setBounds(299, 174, 636, 22);
 
         getContentPane().add(txtEditarAgencia);
-        txtEditarAgencia.setBounds(299, 226, 136, 20);
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Editar Poupança");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(539, 69, 200, 54);
+        txtEditarAgencia.setBounds(299, 226, 136, 22);
 
         jLabel2.setText("Nome do Cliente:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(299, 151, 82, 14);
+        jLabel2.setBounds(299, 151, 99, 16);
 
         jLabel4.setText("Numero da Conta:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(458, 203, 88, 14);
+        jLabel4.setBounds(458, 203, 105, 16);
 
         jLabel3.setText("Agência:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(299, 203, 42, 14);
+        jLabel3.setBounds(299, 203, 50, 16);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/pppppp.png"))); // NOI18N
-        jLabel6.setText("jLabel6");
+        jLabel10.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel10.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(155, 31, 203));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Editar Conta poupança");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(460, 60, 340, 30);
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ladoedit.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 990, 580);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 980, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,17 +195,28 @@ public class EditarContapp extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtEditarClienteActionPerformed
 
+    private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
+
+        Listar list = new Listar();
+        list.setVisible(true);
+        dispose();
+        Usuario user = new Usuario();
+      
+    }//GEN-LAST:event_btnreturnActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btcadastrarpoupanca;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JToggleButton btnreturn;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> txtEditarAgencia;
     private javax.swing.JComboBox<String> txtEditarCliente;
     private javax.swing.JTextField txtEditarContaPP;

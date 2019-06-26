@@ -60,8 +60,9 @@ public class EditarContascc extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        btnreturn = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtselectclienteedit = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -81,14 +82,25 @@ public class EditarContascc extends javax.swing.JFrame {
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ladoedit.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 249, 570));
+        btnreturn.setBackground(new java.awt.Color(102, 0, 102));
+        btnreturn.setForeground(new java.awt.Color(255, 255, 255));
+        btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Botao Voltar Vermelho.png"))); // NOI18N
+        btnreturn.setContentAreaFilled(false);
+        btnreturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreturnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Editar Conta Corrente");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 61, 278, 54));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ladoedit.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 249, 570));
 
         jLabel2.setText("Nome do Cliente:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 168, -1, -1));
@@ -122,7 +134,7 @@ public class EditarContascc extends javax.swing.JFrame {
 
         btcadastrarpoupanca.setBackground(new java.awt.Color(204, 51, 0));
         btcadastrarpoupanca.setForeground(new java.awt.Color(255, 255, 255));
-        btcadastrarpoupanca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Botao cad.png"))); // NOI18N
+        btcadastrarpoupanca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Botao Editar Vermelho.png"))); // NOI18N
         btcadastrarpoupanca.setText("Editar");
         btcadastrarpoupanca.setAutoscrolls(true);
         btcadastrarpoupanca.setBorder(null);
@@ -132,7 +144,6 @@ public class EditarContascc extends javax.swing.JFrame {
         btcadastrarpoupanca.setFocusTraversalPolicyProvider(true);
         btcadastrarpoupanca.setHideActionText(true);
         btcadastrarpoupanca.setInheritsPopupMenu(true);
-        btcadastrarpoupanca.setOpaque(false);
         btcadastrarpoupanca.setSelected(true);
         btcadastrarpoupanca.setVerifyInputWhenFocusTarget(false);
         btcadastrarpoupanca.addActionListener(new java.awt.event.ActionListener() {
@@ -226,11 +237,20 @@ public class EditarContascc extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
+        Listar list = new Listar();
+        list.setVisible(true);
+        dispose();
+        Usuario user = new Usuario();
+        
+    }//GEN-LAST:event_btnreturnActionPerformed
+
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btcadastrarpoupanca;
+    private javax.swing.JToggleButton btnreturn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
