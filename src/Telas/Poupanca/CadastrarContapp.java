@@ -145,11 +145,10 @@ public class CadastrarContapp extends javax.swing.JFrame {
     private void btcadastrarpoupancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcadastrarpoupancaActionPerformed
 
         Poupanca pp = new Poupanca();
+        Item ag = (Item) txtAgenciaSelectp.getSelectedItem();
+        Item us = (Item) txtselectclientep.getSelectedItem();
 
-        if (!this.txtnumeroContaPoupana.getText().equals("")){
-            Item ag = (Item) txtAgenciaSelectp.getSelectedItem();
-            Item us = (Item) txtselectclientep.getSelectedItem();
-  
+        if (!this.txtnumeroContaPoupana.getText().equals("") && !ag.id.equals("Selecione o item") && !us.id.equals("Selecione o item")) {
             pp.setUsuario(us.id);
             pp.setAgencia(ag.id);
             pp.setNumeroConta(txtnumeroContaPoupana.getText());
@@ -160,12 +159,12 @@ public class CadastrarContapp extends javax.swing.JFrame {
                     txtnumeroContaPoupana.setText("");
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Erro ao salvar",
-                        "Erro", JOptionPane.ERROR_MESSAGE);
+                            "Erro", JOptionPane.ERROR_MESSAGE);
                 }
                 JOptionPane.showMessageDialog(rootPane, "Salvou!!!");
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Não Salvo",
-                    "Erro", JOptionPane.ERROR_MESSAGE);
+                        "Erro", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Existe campos vazios", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -178,8 +177,7 @@ public class CadastrarContapp extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnumeroContaPoupanaActionPerformed
 
     private void txtselectclientepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtselectclientepActionPerformed
-    
-        
+
 
     }//GEN-LAST:event_txtselectclientepActionPerformed
 
@@ -199,7 +197,7 @@ public class CadastrarContapp extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtselectclientep;
     // End of variables declaration//GEN-END:variables
 
-public void select() throws IOException {
+    public void select() throws IOException {
         Usuario user = new Usuario();
         Agencia a = new Agencia();
         DefaultComboBoxModel model = (DefaultComboBoxModel) txtselectclientep.getModel();
@@ -221,7 +219,10 @@ public void select() throws IOException {
             String description = u.getNumeroPredio();
             model1.addElement(new Item(id, description));
         }
+        model.setSelectedItem(new Item("Selecione o item", "Selecione o item"));
+        model1.setSelectedItem(new Item("Selecione o item", "Selecione o item"));
     }
+
     class Item {
 
         private String id;
@@ -245,4 +246,3 @@ public void select() throws IOException {
         }
     }
 }
-

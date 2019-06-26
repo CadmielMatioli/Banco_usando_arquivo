@@ -55,7 +55,7 @@ public class ContaCorrente extends Conta {
     }
     //**********Editar Agência********************************************************************** 
 
-    public String editarAgencia() throws IOException {
+    public String editar() throws IOException {
         File arquivoTemp = new File("tmpContaCorrente.txt");
         File arquivo = new File("ContaCorrente.txt");
 

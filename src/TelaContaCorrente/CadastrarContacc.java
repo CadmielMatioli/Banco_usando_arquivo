@@ -29,7 +29,6 @@ public class CadastrarContacc extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         select();
-
     }
 
     /**
@@ -167,13 +166,12 @@ public class CadastrarContacc extends javax.swing.JFrame {
 
     private void btcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcadastrarActionPerformed
         ContaCorrente cc = new ContaCorrente();
-        
+
         Item ag = (Item) txtAgenciaSelect.getSelectedItem();
         Item us = (Item) txtselectcliente.getSelectedItem();
-        
+
         if (!this.txtnumeroConta.getText().equals("") && !ag.id.equals("Selecione o item") && !us.id.equals("Selecione o item")) {
             cc.setNumeroConta(txtnumeroConta.getText());
-            
             cc.setUsuario(us.id);
             cc.setAgencia(ag.id);
             int i = JOptionPane.showConfirmDialog(rootPane, "Deseja salvar essas informações?");
@@ -239,16 +237,16 @@ public void select() throws IOException {
             Logger.getLogger(Listar.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         List<Agencia> l = a.listar();
         for (Agencia u : l) {
             String id = u.getNumeroPredio();
             String description = u.getNumeroPredio();
             model1.addElement(new Item(id, description));
         }
-        
+
         model.setSelectedItem(new Item("Selecione o item", "Selecione o item"));
-        model1.setSelectedItem(new Item("Selecione o item", "Selecione o item"));        
+        model1.setSelectedItem(new Item("Selecione o item", "Selecione o item"));
     }
 
     class Item {
