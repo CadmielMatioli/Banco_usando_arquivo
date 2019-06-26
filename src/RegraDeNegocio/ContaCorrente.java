@@ -11,60 +11,51 @@ import java.util.List;
 
 public class ContaCorrente extends Conta {
 
-    public ContaCorrente(Agencia agencia, Usuario usuario, float retirada, float saldo, String numeroConta, float limite) {
-        super(agencia, usuario, retirada, saldo, numeroConta, limite);
+    public ContaCorrente(String agencia, String usuario, String numeroConta) {
+        super(agencia, usuario, numeroConta);
     }
 
     public ContaCorrente() {
     }
-//**********Construtor********************************************************************
 
-//**********Get and Setter********************************************************************
-//********** Metodo Depositar******************************************************************** 
-    @Override
-    public void depositar(float v) {
-        if (v > 0) {
-            this.setSaldo(this.getSaldo() + v);
-        }
+    public String getAgencia() {
+        return agencia;
     }
-//***********Método Sacar*******************************************************************
 
-    @Override
-    public void sacar(float retirada) {
-        if ((this.saldo - retirada) >= 0) {
-            saldo -= retirada;
-
-        } else {
-            System.out.println("Saldo indisponível");
-        }
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
     }
-//***********Método verSaldo*******************************************************************
 
-    @Override
-    public void verSaldo() {
-        System.out.println(saldo);
+    public String getUsuario() {
+        return usuario;
     }
-//***********Método Transferir*****************************************************************
 
-    @Override
-    public void transferencia(Conta c) {
-
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
+
+    public String getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(String numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
 //***********Cadastrar Conta Corrente***********************************************************
-
     public void cadastrar() throws IOException {
         File arquivo = new File("ContaCorrente.txt");
         arquivo.createNewFile();
         FileWriter fw = new FileWriter(arquivo, true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(this.numeroConta+";");
+        bw.write(this.numeroConta + ";" + this.agencia + ";" + this.usuario + ";");
         bw.newLine();
         bw.close();
         fw.close();
     }
     //**********Editar Agência********************************************************************** 
 
-    public String editarAgencia() throws IOException {
+    public String editar() throws IOException {
         File arquivoTemp = new File("tmpContaCorrente.txt");
         File arquivo = new File("ContaCorrente.txt");
 
@@ -74,7 +65,7 @@ public class ContaCorrente extends Conta {
         while ((linha = br.readLine()) != null) {
             String[] line = linha.split(";");
             if (line[0].equals(numeroConta)) {
-                linha = numeroConta + ";";
+                linha = numeroConta + ";" + this.agencia + ";" + this.usuario + ";";
             }
             bw.write(linha);
             bw.newLine();
@@ -86,6 +77,44 @@ public class ContaCorrente extends Conta {
         return numeroConta;
 
     }
-    //**********************************************************************************************   
 
+    //**********************************************************************************************   
+    public List<ContaCorrente> listar() throws IOException {
+        BufferedReader buffRead = new BufferedReader(new FileReader("ContaCorrente.txt"));
+        String linha = "";
+        List<ContaCorrente> l = new ArrayList<ContaCorrente>();
+        linha = buffRead.readLine();
+
+        while (true) {
+            if (linha != null) {
+                String dados[] = linha.split(";");
+                ContaCorrente u = new ContaCorrente(dados[0], dados[1], dados[2]);
+                l.add(u);
+            } else {
+                break;
+            }
+            linha = buffRead.readLine();
+        }
+        buffRead.close();
+        return l;
+    }
+
+    public void buscar() throws Exception {
+        File arquivo = new File("ContaCorrente.txt");
+        if (!arquivo.exists()) {
+            arquivo.createNewFile();
+        }
+        FileReader fr = new FileReader(arquivo);
+        BufferedReader br = new BufferedReader(fr);
+        while (br.ready()) {
+            String linha = br.readLine();
+            String vet[] = linha.split(";");
+            if (this.numeroConta.equals(vet[0])) {
+                this.agencia = (vet[1]);
+                this.usuario = vet[2];
+            }
+            br.close();
+            fr.close();
+        }
+    }
 }

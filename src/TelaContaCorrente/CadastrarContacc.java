@@ -29,7 +29,6 @@ public class CadastrarContacc extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         select();
-
     }
 
     /**
@@ -53,6 +52,7 @@ public class CadastrarContacc extends javax.swing.JFrame {
         btcadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Conta Corrente");
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -165,16 +165,22 @@ public class CadastrarContacc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcadastrarActionPerformed
-
         ContaCorrente cc = new ContaCorrente();
 
-        if (!this.txtnumeroConta.getText().equals("")) {
+        Item ag = (Item) txtAgenciaSelect.getSelectedItem();
+        Item us = (Item) txtselectcliente.getSelectedItem();
+
+        if (!this.txtnumeroConta.getText().equals("") && !ag.id.equals("Selecione o item") && !us.id.equals("Selecione o item")) {
             cc.setNumeroConta(txtnumeroConta.getText());
+            cc.setUsuario(us.id);
+            cc.setAgencia(ag.id);
             int i = JOptionPane.showConfirmDialog(rootPane, "Deseja salvar essas informações?");
             if (i == 0) {
                 try {
                     cc.cadastrar();
                     txtnumeroConta.setText("");
+                    txtAgenciaSelect.setSelectedItem(null);
+                    txtselectcliente.setSelectedItem(null);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Erro ao salvar",
                             "Erro", JOptionPane.ERROR_MESSAGE);
@@ -231,13 +237,18 @@ public void select() throws IOException {
             Logger.getLogger(Listar.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
+
         List<Agencia> l = a.listar();
         for (Agencia u : l) {
-            String id = u.getNumeroAgencia();
-            String description = u.getNumeroAgencia();
+            String id = u.getNumeroPredio();
+            String description = u.getNumeroPredio();
             model1.addElement(new Item(id, description));
         }
+
+        model.setSelectedItem(new Item("Selecione o item", "Selecione o item"));
+        model1.setSelectedItem(new Item("Selecione o item", "Selecione o item"));
     }
+
     class Item {
 
         private String id;

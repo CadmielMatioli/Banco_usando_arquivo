@@ -7,12 +7,15 @@ package TelaContaCorrente;
 
 import Tela.Usuario.Listar;
 import RegraDeNegocio.Agencia;
+import RegraDeNegocio.ContaCorrente;
 import RegraDeNegocio.Usuario;
 import TelaContaCorrente.CadastrarContacc.Item;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,13 +24,31 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EditarContascc extends javax.swing.JFrame {
 
+    private ContaCorrente u;
+
+    public ContaCorrente getU() {
+        return u;
+    }
+
+    public void setU(ContaCorrente u) {
+        this.u = u;
+        txtnumeroContaedit.setText(u.getNumeroConta());
+        txtselectclienteedit.addItem(u.getAgencia());
+        txtAgenciaEdit.addItem(u.getAgencia());
+    }
+
     /**
      * Creates new form EditarContascc
      */
-    public EditarContascc() {
+    public EditarContascc() throws IOException {
         initComponents();
+        setLocationRelativeTo(null);
+        select();
+        diableinput();
     }
-
+    public void diableinput(){
+        txtnumeroContaedit.setEditable(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,12 +65,15 @@ public class EditarContascc extends javax.swing.JFrame {
         txtAgenciaEdit = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtnumeroContaedit = new javax.swing.JTextField();
-        javax.swing.JButton bteditar = new javax.swing.JButton();
+        btcadastrarpoupanca = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Editar Conta Corrente");
+        setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Editar Cadastro de Conta Corrente");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Editar Conta Corrente");
 
         jLabel2.setText("Nome do Cliente:");
 
@@ -69,15 +93,22 @@ public class EditarContascc extends javax.swing.JFrame {
 
         jLabel4.setText("Numero da Conta:");
 
-        bteditar.setText("Editar");
-        bteditar.setBorderPainted(false);
-        bteditar.setContentAreaFilled(false);
-        bteditar.setFocusCycleRoot(true);
-        bteditar.setHideActionText(true);
-        bteditar.setVerifyInputWhenFocusTarget(false);
-        bteditar.addActionListener(new java.awt.event.ActionListener() {
+        txtnumeroContaedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bteditarActionPerformed(evt);
+                txtnumeroContaeditActionPerformed(evt);
+            }
+        });
+
+        btcadastrarpoupanca.setText("Cadastrar");
+        btcadastrarpoupanca.setAutoscrolls(true);
+        btcadastrarpoupanca.setDoubleBuffered(true);
+        btcadastrarpoupanca.setFocusCycleRoot(true);
+        btcadastrarpoupanca.setHideActionText(true);
+        btcadastrarpoupanca.setInheritsPopupMenu(true);
+        btcadastrarpoupanca.setSelected(true);
+        btcadastrarpoupanca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btcadastrarpoupancaActionPerformed(evt);
             }
         });
 
@@ -86,28 +117,24 @@ public class EditarContascc extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(81, 81, 81)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(txtselectclienteedit, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(txtselectclienteedit, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtAgenciaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(txtnumeroContaedit)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addComponent(bteditar, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(txtAgenciaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(txtnumeroContaedit))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(163, 163, 163))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btcadastrarpoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,9 +153,9 @@ public class EditarContascc extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAgenciaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtnumeroContaedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bteditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btcadastrarpoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,20 +166,50 @@ public class EditarContascc extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtselectclienteeditActionPerformed
 
-    private void bteditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteditarActionPerformed
-
-
-    }//GEN-LAST:event_bteditarActionPerformed
-
     private void txtAgenciaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgenciaEditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgenciaEditActionPerformed
 
+    private void btcadastrarpoupancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcadastrarpoupancaActionPerformed
+        ContaCorrente cc = new ContaCorrente();
+
+        Item ag = (Item) txtAgenciaEdit.getSelectedItem();
+        Item us = (Item) txtselectclienteedit.getSelectedItem();
+
+        if (!this.txtnumeroContaedit.getText().equals("")) {
+            cc.setNumeroConta(txtnumeroContaedit.getText());
+            cc.setUsuario(us.id);
+            cc.setAgencia(ag.id);
+            int i = JOptionPane.showConfirmDialog(rootPane, "Deseja salvar essas informações?");
+            if (i == 0) {
+                try {
+                    cc.editar();
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(rootPane, "Erro ao salvar",
+                            "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+                JOptionPane.showMessageDialog(rootPane, "Salvou!!!");
+                ListarContascc lp = new ListarContascc();
+                lp.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Não Salvo",
+                        "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Existe campos vazios", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btcadastrarpoupancaActionPerformed
+
+    private void txtnumeroContaeditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeroContaeditActionPerformed
+        
+    }//GEN-LAST:event_txtnumeroContaeditActionPerformed
+
     /**
      * @param args the command line arguments
      */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btcadastrarpoupanca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -162,20 +219,16 @@ public class EditarContascc extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtselectclienteedit;
     // End of variables declaration//GEN-END:variables
 public void select() throws IOException {
-    
-    
         Usuario user = new Usuario();
         Agencia a = new Agencia();
-        
-        Item description = (Item)txtAgenciaEdit.getSelectedItem();
-        Item id = (Item)txtselectclienteedit.getSelectedItem();                                
-
-
-        
+        DefaultComboBoxModel model = (DefaultComboBoxModel) txtselectclienteedit.getModel();
+        DefaultComboBoxModel model1 = (DefaultComboBoxModel) txtAgenciaEdit.getModel();
         try {
             List<Usuario> l = user.listar();
             for (Usuario u : l) {
-                txtselectclienteedit.addItem(u.getNome());
+                String id = u.getCpf();
+                String description = u.getNome();
+                model.addElement(new Item(id, description));
             }
         } catch (IOException ex) {
             Logger.getLogger(Listar.class
@@ -183,7 +236,32 @@ public void select() throws IOException {
         }
         List<Agencia> l = a.listar();
         for (Agencia u : l) {
-            txtAgenciaEdit.addItem(u.getNumeroAgencia());
+            String id = u.getNumeroPredio();
+            String description = u.getNumeroPredio();
+            model1.addElement(new Item(id, description));
+        }
+    }
+
+    class Item {
+
+        private String id;
+        private String description;
+
+        public Item(String id, String description) {
+            this.id = id;
+            this.description = description;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String toString() {
+            return description;
         }
     }
 }
