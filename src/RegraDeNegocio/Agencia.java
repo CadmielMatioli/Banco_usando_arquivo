@@ -91,7 +91,7 @@ public class Agencia {
     public void cadastrar() throws IOException {
         File arquivo = new File("Agencia.txt");
         arquivo.createNewFile();
-        FileWriter fw = new FileWriter(arquivo);
+        FileWriter fw = new FileWriter(arquivo,true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(nomeBanco + ";" + enderecoBanco + ";" + numeroAgencia + ";" + cidadeAgencia + ";" + estadoAgencia + ";" + bairroAgencia + ";" + numeroPredio + ";");
         bw.newLine();
@@ -162,14 +162,6 @@ public class Agencia {
         arquivo.delete();
         arquivoTemp.renameTo(arquivo);
         return numeroAgencia;
-    }
-
-    public void inativarAgencia() {
-
-    }
-
-    public void inativarConta() {
-
     }
 
     public void buscar() throws Exception {

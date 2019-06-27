@@ -86,7 +86,7 @@ public class EditarContapp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnreturn);
-        btnreturn.setBounds(730, 400, 171, 59);
+        btnreturn.setBounds(730, 400, 165, 59);
 
         btcadastrarpoupanca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Botao Editar Vermelho.png"))); // NOI18N
         btcadastrarpoupanca.setAutoscrolls(true);
@@ -110,7 +110,7 @@ public class EditarContapp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEditarContaPP);
-        txtEditarContaPP.setBounds(458, 226, 477, 22);
+        txtEditarContaPP.setBounds(458, 226, 477, 20);
 
         txtEditarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,22 +118,22 @@ public class EditarContapp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtEditarCliente);
-        txtEditarCliente.setBounds(299, 174, 636, 22);
+        txtEditarCliente.setBounds(299, 174, 636, 20);
 
         getContentPane().add(txtEditarAgencia);
-        txtEditarAgencia.setBounds(299, 226, 136, 22);
+        txtEditarAgencia.setBounds(299, 226, 136, 20);
 
         jLabel2.setText("Nome do Cliente:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(299, 151, 99, 16);
+        jLabel2.setBounds(299, 151, 82, 14);
 
         jLabel4.setText("Numero da Conta:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(458, 203, 105, 16);
+        jLabel4.setBounds(458, 203, 88, 14);
 
         jLabel3.setText("Agência:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(299, 203, 50, 16);
+        jLabel3.setBounds(299, 203, 42, 14);
 
         jLabel10.setBackground(new java.awt.Color(153, 153, 153));
         jLabel10.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
@@ -197,10 +197,9 @@ public class EditarContapp extends javax.swing.JFrame {
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
 
-        Listar list = new Listar();
+        ListarContaspp list = new ListarContaspp();
         list.setVisible(true);
         dispose();
-        Usuario user = new Usuario();
       
     }//GEN-LAST:event_btnreturnActionPerformed
 

@@ -9,7 +9,6 @@ import Tela.Usuario.Listar;
 import RegraDeNegocio.Agencia;
 import RegraDeNegocio.ContaCorrente;
 import RegraDeNegocio.Usuario;
-import TelaContaCorrente.CadastrarContacc.Item;
 import Telas.Menu;
 import java.io.IOException;
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,7 +39,7 @@ public class EditarContascc extends javax.swing.JFrame {
     /**
      * Creates new form EditarContascc
      */
-    public EditarContascc() throws IOException {
+    public EditarContascc() throws IOException{
         initComponents();
         setLocationRelativeTo(null);
         select();
@@ -70,17 +68,16 @@ public class EditarContascc extends javax.swing.JFrame {
         txtnumeroContaedit = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btcadastrarpoupanca = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Editar Conta Corrente");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(153, 153, 153));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.setRequestFocusEnabled(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnreturn.setBackground(new java.awt.Color(102, 0, 102));
         btnreturn.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,51 +88,40 @@ public class EditarContascc extends javax.swing.JFrame {
                 btnreturnActionPerformed(evt);
             }
         });
-        jPanel1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Editar Conta Corrente");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 61, 278, 54));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ladoedit.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 249, 570));
 
         jLabel2.setText("Nome do Cliente:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 168, -1, -1));
 
         txtselectclienteedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtselectclienteeditActionPerformed(evt);
             }
         });
-        jPanel1.add(txtselectclienteedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 191, 530, -1));
 
         jLabel3.setText("Agência:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 231, -1, -1));
 
         txtAgenciaEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAgenciaEditActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAgenciaEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 254, 136, -1));
 
         txtnumeroContaedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnumeroContaeditActionPerformed(evt);
             }
         });
-        jPanel1.add(txtnumeroContaedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 254, 380, -1));
 
         jLabel4.setText("Numero da Conta:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 231, -1, -1));
 
         btcadastrarpoupanca.setBackground(new java.awt.Color(204, 51, 0));
         btcadastrarpoupanca.setForeground(new java.awt.Color(255, 255, 255));
         btcadastrarpoupanca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Botao Editar Vermelho.png"))); // NOI18N
-        btcadastrarpoupanca.setText("Editar");
         btcadastrarpoupanca.setAutoscrolls(true);
         btcadastrarpoupanca.setBorder(null);
         btcadastrarpoupanca.setContentAreaFilled(false);
@@ -151,50 +137,63 @@ public class EditarContascc extends javax.swing.JFrame {
                 btcadastrarpoupancaActionPerformed(evt);
             }
         });
-        jPanel1.add(btcadastrarpoupanca, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 130, -1));
 
-        jToggleButton1.setBackground(new java.awt.Color(102, 0, 204));
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bot Voltar.png"))); // NOI18N
-        jToggleButton1.setText("Voltar");
-        jToggleButton1.setAutoscrolls(true);
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setContentAreaFilled(false);
-        jToggleButton1.setDoubleBuffered(true);
-        jToggleButton1.setFocusCycleRoot(true);
-        jToggleButton1.setFocusTraversalPolicyProvider(true);
-        jToggleButton1.setHideActionText(true);
-        jToggleButton1.setInheritsPopupMenu(true);
-        jToggleButton1.setVerifyInputWhenFocusTarget(false);
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 128, -1));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(102, 102, 102)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(txtselectclienteedit, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtAgenciaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtnumeroContaedit, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(btcadastrarpoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(189, 189, 189)
+                        .addComponent(btnreturn)))
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel2)
+                .addGap(9, 9, 9)
+                .addComponent(txtselectclienteedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAgenciaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnumeroContaedit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btcadastrarpoupanca)
+                    .addComponent(btnreturn)))
+        );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtselectclienteeditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtselectclienteeditActionPerformed
-
-
-    }//GEN-LAST:event_txtselectclienteeditActionPerformed
-
-    private void txtAgenciaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgenciaEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgenciaEditActionPerformed
 
     private void btcadastrarpoupancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcadastrarpoupancaActionPerformed
         ContaCorrente cc = new ContaCorrente();
@@ -212,7 +211,7 @@ public class EditarContascc extends javax.swing.JFrame {
                     cc.editar();
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Erro ao salvar",
-                            "Erro", JOptionPane.ERROR_MESSAGE);
+                        "Erro", JOptionPane.ERROR_MESSAGE);
                 }
                 JOptionPane.showMessageDialog(rootPane, "Salvou!!!");
                 ListarContascc lp = new ListarContascc();
@@ -220,7 +219,7 @@ public class EditarContascc extends javax.swing.JFrame {
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Não Salvo",
-                        "Erro", JOptionPane.ERROR_MESSAGE);
+                    "Erro", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Existe campos vazios", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -228,21 +227,21 @@ public class EditarContascc extends javax.swing.JFrame {
     }//GEN-LAST:event_btcadastrarpoupancaActionPerformed
 
     private void txtnumeroContaeditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeroContaeditActionPerformed
-        
+
     }//GEN-LAST:event_txtnumeroContaeditActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        Menu m = new Menu();
-        m.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void txtAgenciaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgenciaEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAgenciaEditActionPerformed
+
+    private void txtselectclienteeditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtselectclienteeditActionPerformed
+
+    }//GEN-LAST:event_txtselectclienteeditActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
-        Listar list = new Listar();
+        ListarContascc list = new ListarContascc();
         list.setVisible(true);
         dispose();
-        Usuario user = new Usuario();
-        
     }//GEN-LAST:event_btnreturnActionPerformed
 
     /**
@@ -257,7 +256,6 @@ public class EditarContascc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JComboBox<String> txtAgenciaEdit;
     private javax.swing.JTextField txtnumeroContaedit;
     private javax.swing.JComboBox<String> txtselectclienteedit;
