@@ -59,10 +59,12 @@ public class Menu extends javax.swing.JFrame {
         jMenu14 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
-        jMenu13 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
         jMenu15 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
         jMenu17 = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
@@ -121,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.setBorder(null);
         jMenu4.setText("Usuários");
 
-        jMenu6.setText("Cadastrar Usuário");
+        jMenu6.setText("Cadastrar");
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu6MouseClicked(evt);
@@ -134,7 +136,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenu6);
 
-        jMenu7.setText("Listar Usuários");
+        jMenu7.setText("Listar");
         jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu7MouseClicked(evt);
@@ -155,57 +157,63 @@ public class Menu extends javax.swing.JFrame {
         jMenu5.setBorder(null);
         jMenu5.setText("Agência");
 
-        jMenu9.setText("Cadastrar Agências");
+        jMenu9.setText("Cadastrar");
         jMenu9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu9MouseClicked(evt);
             }
         });
-
-        jMenu12.setText("Cadastrar Conta Corrente");
-        jMenu12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu12MouseClicked(evt);
-            }
-        });
-        jMenu9.add(jMenu12);
-
-        jMenu13.setText("Cadastrar Conta Poupança");
-        jMenu13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu13MouseClicked(evt);
-            }
-        });
-        jMenu9.add(jMenu13);
-
         jMenu5.add(jMenu9);
 
-        jMenu10.setText("Listar Agências");
+        jMenu10.setText("Listar");
         jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu10MouseClicked(evt);
             }
         });
+        jMenu5.add(jMenu10);
 
-        jMenu15.setText("Listar Contas Corrente");
+        jMenuBar1.add(jMenu5);
+
+        jMenu8.setText("Conta Corrente");
+
+        jMenu12.setText("Cadastrar");
+        jMenu12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu12MouseClicked(evt);
+            }
+        });
+        jMenu8.add(jMenu12);
+
+        jMenu15.setText("Listar");
         jMenu15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu15MouseClicked(evt);
             }
         });
-        jMenu10.add(jMenu15);
+        jMenu8.add(jMenu15);
 
-        jMenu17.setText("Listar Contas Poupança");
+        jMenuBar1.add(jMenu8);
+
+        jMenu11.setText("Conta Poupança");
+
+        jMenu13.setText("Cadastrar");
+        jMenu13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu13MouseClicked(evt);
+            }
+        });
+        jMenu11.add(jMenu13);
+
+        jMenu17.setText("Listar");
         jMenu17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu17MouseClicked(evt);
             }
         });
-        jMenu10.add(jMenu17);
+        jMenu11.add(jMenu17);
 
-        jMenu5.add(jMenu10);
-
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
 
@@ -287,6 +295,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu13;
     private javax.swing.JMenu jMenu14;
@@ -299,6 +308,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

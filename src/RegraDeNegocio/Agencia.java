@@ -99,10 +99,6 @@ public class Agencia {
         fw.close();
     }
 
-    public void buscarConta() {
-
-    }
-
     public List<Agencia> listar() throws IOException {
         BufferedReader buffRead = new BufferedReader(new FileReader("Agencia.txt"));
         String linha = "";

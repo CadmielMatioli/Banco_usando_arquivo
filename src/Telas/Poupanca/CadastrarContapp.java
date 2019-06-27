@@ -218,6 +218,8 @@ public class CadastrarContapp extends javax.swing.JFrame {
                 try {
                     pp.cadastrar();
                     txtnumeroContaPoupana.setText("");
+                    txtAgenciaSelectp.setSelectedItem(null);
+                    txtselectclientep.setSelectedItem(null);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(rootPane, "Erro ao salvar",
                             "Erro", JOptionPane.ERROR_MESSAGE);
